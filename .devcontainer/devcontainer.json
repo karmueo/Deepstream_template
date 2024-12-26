@@ -3,13 +3,14 @@
     "dockerFile": "Dockerfile",
     "build": {
         "args": {
-            "WORKSPACE": "${containerWorkspaceFolder}" // 代表容器工作区的路径
+            "WORKSPACE": "/opt/nvidia/deepstream/deepstream-7.1" // 代表容器工作区的路径
         }
     },
     "remoteUser": "root", // 容器内默认用户
     // runArgs 配置是传递给 Docker 容器的启动参数，用来定制容器的行为
     "runArgs": [
         "--network=host", // 让容器使用主机的网络设置，这样容器内的应用可以访问主机的网络
+        "--runtime=nvidia", // 使用 NVIDIA 的容器运行时，以便容器内的应用可以使用 NVIDIA 的 GPU
         "--cap-add=SYS_PTRACE", // 用于调试进程
         "--security-opt=seccomp:unconfined", // 禁用 Docker 容器的 seccomp 安全配置，这样容器内的进程可以进行更多系统调用
         "--security-opt=apparmor:unconfined", // 禁用 AppArmor 安全配置，类似于 seccomp
