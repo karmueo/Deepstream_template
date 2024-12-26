@@ -23,8 +23,19 @@
 
 ### 1. 先决条件
 
-- [docker](https://docs.docker.com/engine/install/)
-- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+#### 1. docker-ce安装
+
+参考[docker安装](https://docs.docker.com/engine/install/)
+
+#### 2. nvidia-container-toolkit安装
+
+参考[nvidia-container-toolkit安装教程](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+
+### 3. 获取 NGC 帐户和 API 密钥
+```sh
+sudo apt-key del 7fa2af80
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
+```
 
 ### 2. 用法
 
